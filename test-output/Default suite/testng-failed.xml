@@ -6,9 +6,11 @@
       <class name="AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium.CustomizationAllure">
         <methods>
           <include name="validateSkippingTest"/>
+          <include name="validateTitle"/>
           <include name="tearDown"/>
           <include name="verifyHomeLink"/>
           <include name="setUp"/>
+          <include name="validateBlogIsOpening"/>
         </methods>
       </class> <!-- AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium.CustomizationAllure -->
     </classes>

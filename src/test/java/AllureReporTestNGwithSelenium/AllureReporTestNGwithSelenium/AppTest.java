@@ -1,3 +1,4 @@
+/*Here we are using webdrivermanager for browser setup, Then URL opening and 4 test cases*/ 
 package AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium;
 
 import static org.testng.Assert.assertEquals;

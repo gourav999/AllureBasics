@@ -20,37 +20,33 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 
-
-
-
 @Listeners(AllureListener.class)
 public class CustomizationAllure extends BaseClass {
-	//WebDriver driver;
-	//public WebDriver driver;
-public WebDriver bs;
+	// WebDriver driver;
+	// public WebDriver driver;
+	public WebDriver bs;
+
 	@BeforeClass
-	public void setUp() {
-		//Commenting this code becasue we have implemented this on base class
-		//WebDriverManager.chromedriver().setup();
+	public void setUp() throws InterruptedException {
+		// Commenting this code becasue we have implemented this on base class
+		// WebDriverManager.chromedriver().setup();
 		// We can also do-->WebDriverManager.firefoxdriver().setup();
 		// We can also do-->WebDriverManager.iedriver().setup();
 		// commenting as base class we have created. driver = new ChromeDriver();
-		
-		BaseClass bs=new BaseClass();
-		bs.inilizeDriver();
-		
-		driver=bs.inilizeDriver();
+
+		BaseClass bs = new BaseClass();
+
+		driver = bs.inilizeDriver();// Here we are creating one object bs which is taking the return values of
+									// inilizedriver method.
 		driver.get("http://jaingourav999.blogspot.com/");
 		driver.manage().window().maximize();
-		//((WebDriver) b).get("http://jaingourav999.blogspot.com/");
-		//((WebDriver) b).manage().window().maximize();
+		// ((WebDriver) b).get("http://jaingourav999.blogspot.com/");
+		// ((WebDriver) b).manage().window().maximize();
 
 	}
 
-	// Note: in TestNG we can provide the description
-	// Note: Below description is provided by Allure
-	@Test(priority = 1, description = "Validaton of Title")
-	@Description("Verifiy title is present and displayed correctly")
+	@Test(priority = 1, description = "Validaton of Title") // Note: in TestNG we can provide the description
+	@Description("Verifiy title is present and displayed correctly") // Note: Below description is provided by Allure
 	@Epic("BlogTest")
 	@Feature("Feature1: Title")
 	@Story("User story is TC-logo-001")
@@ -58,18 +54,19 @@ public WebDriver bs;
 	@Severity(SeverityLevel.CRITICAL)
 	public void validateTitle() {
 		// Title verification
-		String titleofWebpage =driver.getTitle();
+		String titleofWebpage = driver.getTitle();
 		System.out.println("This is the tile of webpae-->" + titleofWebpage);
 		assertEquals("Software Testing", titleofWebpage);
 
 	}
 
-	// Note: in TestNG we can provide the description
-	// Note: Below description is provided by Allure
-	@Description("Verifiy blog page is displayed")
+	/*
+	 * in TestNG we can provide the descriptionNote: Below description is provided
+	 * by Allure
+	 */ @Description("Verifiy blog page is displayed")
 	@Epic("BlogTest")
 	@Feature("Feature1: Blog verify")
-	@Story("User story is TC-Blog-001")
+	@Story("User story is TC-Blog-002")
 	@Step("Step is to Verifiy blog page is displayed")
 	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 2)
