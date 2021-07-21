@@ -17,7 +17,7 @@ public class AllureListener implements ITestListener {
 	// we have to overwrite the test methods for getting the name here in
 	// itestlistener.
 	private static String getTestMethodName(ITestResult itestResult) {
-		return itestResult.getMethod().getConstructorOrMethod().getConstructor().getName();
+		return itestResult.getMethod().getConstructorOrMethod().getName();
 	}
 
 	// attachment is an allure annotations
@@ -66,7 +66,7 @@ public class AllureListener implements ITestListener {
 	 * onTestFailure method is called on the failure of any Test. Itestresult
 	 * contains all the result information. Name, driver pass fail etc all.
 	 */ public void onTestFailure(ITestResult itestresult) {
-		System.out.println("I am in on Test Failure Method " + getTestMethodName(itestresult) + "Failed");
+		System.out.println("I am in onTest Failure Method " + getTestMethodName(itestresult) + "Failed");
 		// Here one object is creaetd and saving the instance. Object is a predefine
 		// class in java.
 		Object Testclass = itestresult.getInstance();
@@ -82,7 +82,7 @@ public class AllureListener implements ITestListener {
 
 	// onTestSkipped method is called on skipped of any Test.
 	public void onTestSkipped(ITestResult itestresult) {
-		System.out.println("I am in on Test Skipped Method " + getTestMethodName(itestresult) + "Skipped");
+		System.out.println("I am in onTest Skipped Method " + getTestMethodName(itestresult) + "Skipped");
 		getTestMethodName(itestresult);
 	}
 }
