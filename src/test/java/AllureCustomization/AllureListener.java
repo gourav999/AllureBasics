@@ -1,4 +1,4 @@
-package AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium;
+package AllureCustomization;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -17,7 +17,7 @@ public class AllureListener implements ITestListener {
 	// we have to overwrite the test methods for getting the name here in
 	// itestlistener.
 	private static String getTestMethodName(ITestResult itestResult) {
-		return itestResult.getMethod().getConstructorOrMethod().getName();
+		return itestResult.getMethod().getConstructorOrMethod().getConstructor().getName();
 	}
 
 	// attachment is an allure annotations
@@ -33,39 +33,54 @@ public class AllureListener implements ITestListener {
 		return message;
 	}
 
+	// ==========ITestListener interface Methods=================//
+	// Onstart--OnStart method is called when any Test starts.Note on start we use
+	// ITestCotext
 	@Override
 	public void onStart(ITestContext itestcontext) {
+		System.out.println("I am in onStart Method " + itestcontext.getName());
 		itestcontext.setAttribute("WebDriver", BaseClass.getDriver());
 	}
 
+	// -onFinish method is called after all Tests are executed.
 	@Override
 	public void onFinish(ITestContext itestcontext) {
-		itestcontext.getName();
+		System.out.println("I am in onFinish Method " + itestcontext.getName());
+
 	}
 
+	// Note on start we use ITestResult
 	@Override
 	public void onTestStart(ITestResult itestresult) {
-		getTestMethodName(itestresult);
+		System.out.println("I am in onFinish Method " + getTestMethodName(itestresult));
+
 	}
 
+	// onTestSuccess method is called on the success of any Test.
 	public void onTestSucess(ITestResult itestresult) {
-		System.out.println("I am in on Test Failure Method " + getTestMethodName(itestresult) + "Sucess");
-		getTestMethodName(itestresult);
+		System.out.println("I am in on Test Sucess Method " + getTestMethodName(itestresult) + "Sucess");
+
 	}
 
-	public void onTestFailure(ITestResult itestresult) {
+	/*
+	 * onTestFailure method is called on the failure of any Test. Itestresult
+	 * contains all the result information. Name, driver pass fail etc all.
+	 */ public void onTestFailure(ITestResult itestresult) {
 		System.out.println("I am in on Test Failure Method " + getTestMethodName(itestresult) + "Failed");
+		// Here one object is creaetd and saving the instance. Object is a predefine
+		// class in java.
 		Object Testclass = itestresult.getInstance();
-		WebDriver DX = BaseClass.getDriver();
-		if (DX instanceof WebDriver) {
+		WebDriver bd = BaseClass.getDriver();
+		if (bd instanceof WebDriver) {
 			System.out.println("Screenshot captured for  Test cases " + getTestMethodName(itestresult));
-			saveFailureScreenshot(DX);
+			saveFailureScreenshot(bd);
 
 		}
-		saveTextLog(getTestMethodName(itestresult) + "failed and screenshot taken!!");
+		saveTextLog(getTestMethodName(itestresult) + "Test case is failed and screenshot taken!!");
 
 	}
 
+	// onTestSkipped method is called on skipped of any Test.
 	public void onTestSkipped(ITestResult itestresult) {
 		System.out.println("I am in on Test Skipped Method " + getTestMethodName(itestresult) + "Skipped");
 		getTestMethodName(itestresult);

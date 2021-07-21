@@ -1,17 +1,17 @@
-package AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium;
+package AllureCustomization;
 
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -48,7 +48,7 @@ public class CustomizationAllure extends BaseClass {
 	@Test(priority = 1, description = "Validaton of Title") // Note: in TestNG we can provide the description
 	@Description("Verifiy title is present and displayed correctly") // Note: Below description is provided by Allure
 	@Epic("BlogTest")
-	@Feature("Feature1: Title")
+	@Feature("Feature1: Blog verify")
 	@Story("User story is TC-logo-001")
 	@Step("Step is to Verifiy title is present and displayed correctly")
 	@Severity(SeverityLevel.CRITICAL)
@@ -63,7 +63,8 @@ public class CustomizationAllure extends BaseClass {
 	/*
 	 * in TestNG we can provide the descriptionNote: Below description is provided
 	 * by Allure
-	 */ @Description("Verifiy blog page is displayed")
+	 */
+	@Description("Verifiy blog page is displayed")
 	@Epic("BlogTest")
 	@Feature("Feature1: Blog verify")
 	@Story("User story is TC-Blog-002")
@@ -82,13 +83,21 @@ public class CustomizationAllure extends BaseClass {
 	}
 
 	// This will skip the test.
-	@Test(priority = 3)
+	@Description("Verify skipping this test case")
 	@Epic("BlogTest")
+	@Feature("Feature3: Skipping feature")
+	@Test(priority = 3)
 	public void validateSkippingTest() {
 		throw new SkipException("Skipping the test");
 	}
 
 	// This will fail.
+	@Description("Verifiy Homelink page is displayed correctly")
+	@Epic("BlogTest")
+	@Feature("Feature1: Blog verify")
+	@Story("User story is TC-Blog-004")
+	@Step("Step is to Homelink page is displayed correctly")
+	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 4)
 	@Epic("BlogTest")
 	public void verifyHomeLink() {

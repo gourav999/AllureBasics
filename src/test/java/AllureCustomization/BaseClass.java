@@ -1,4 +1,4 @@
-package AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium;
+package AllureCustomization;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
