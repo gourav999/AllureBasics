@@ -52,7 +52,7 @@ public class AllureListener implements ITestListener {
 	// Note on start we use ITestResult
 	@Override
 	public void onTestStart(ITestResult itestresult) {
-		System.out.println("I am in onFinish Method " + getTestMethodName(itestresult));
+		System.out.println("I am in onTestStart Method " + getTestMethodName(itestresult));
 
 	}
 
