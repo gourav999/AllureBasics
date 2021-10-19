@@ -61,6 +61,7 @@ public class AppTest {
 
 	}
 
+	//This will run after every Test annoations
 	@AfterClass
 	public void tearDown() {
 		driver.close();
