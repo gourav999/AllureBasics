@@ -7,6 +7,6 @@
       <class name="AllureCustomization.CustomizationAllure"/>
       <class name="AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium.AppTest"/>
     </classes>
-  </test> <!-- Test -->
+  </test>  <!-- Test -->
 </suite> <!-- Suite -->
 
