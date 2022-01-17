@@ -4,7 +4,8 @@
   <test thread-count="5" name="Test">
     <classes>
       
-      <class name="AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium.CustomizationAllure"/>
+      <class name="AllureCustomization.CustomizationAllure"/>
+      <class name="AllureReporTestNGwithSelenium.AllureReporTestNGwithSelenium.AppTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
